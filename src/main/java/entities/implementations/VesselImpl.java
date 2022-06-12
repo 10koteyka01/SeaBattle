@@ -8,13 +8,14 @@ import java.util.List;
 public class VesselImpl implements Vessel {
     private int decksCount;
     List<Point> points = new ArrayList<>();
+
     public VesselImpl(int decksCount) {
         this.decksCount = decksCount;
     }
 
     @Override
     public boolean isVesselContainsPoint(Point point) {
-        return false;
+        return points.stream().anyMatch(p -> p.getX() == point.getX() & p.getY() == point.getY());
     }
 
     @Override
